@@ -1,3 +1,7 @@
+# Learn Create React App
+
+I followed this tutorial by Mosh: [Learn React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
