@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Counter from './components/counter';
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <h1>Hello World Joe!</h1>
+        <Counter />
       </div>
     );
   }
