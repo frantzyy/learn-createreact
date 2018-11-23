@@ -6,19 +6,19 @@ class Counter extends Component {
     imageUrl: 'https://picsum.photos/200'
   };
 
-  styles = {
-    fontSize: 50,
-    fontWeight: 'bold'
-  };
   render() {
     return (
       <React.Fragment>
-        <span style={this.styles} className="badge badge-primary m-2">
-          {this.formatCount()}
-        </span>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button className="btn-secondary btn-sm">increment</button>
       </React.Fragment>
     );
+  }
+
+  getBadgeClasses() {
+    let classes = 'badge m-s badge-';
+    classes += this.state.count === 0 ? 'warning' : 'primary';
+    return classes;
   }
 
   formatCount() {
