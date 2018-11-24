@@ -6,11 +6,12 @@ class Counter extends Component {
     tags: ['tag1', 'tag2', 'tag3']
   };
 
-  constructor() {
-    super();
-    console.log('Constructor', this);
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
+  //option 1 binding this for eventing
+  // constructor() {
+  //   super();
+  //   console.log('Constructor', this);
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
 
   render() {
     return (
@@ -24,9 +25,16 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement() {
+  //option 1 binding this for eventing
+  // handleIncrement() {
+  //   console.log('increment clicked!', this);
+  // }
+
+  //option 2 binding this for eventing
+  handleIncrement = () => {
     console.log('increment clicked!', this);
-  }
+    this.setState({ count: this.state.count + 1 });
+  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
