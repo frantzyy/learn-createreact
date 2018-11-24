@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Counter from './components/counter';
+import Counters from './components/counters';
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
           </a>
         </header>
         <h1>Hello World Joe!</h1>
-        <Counter />
+        <Counters />
       </div>
     );
   }
