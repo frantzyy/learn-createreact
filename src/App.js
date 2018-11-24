@@ -56,7 +56,9 @@ class App extends Component {
           </a>
         </header>
         <h1>Hello World Joe!</h1>
-        <Navbar />
+        <Navbar
+          totalCounters={this.state.counters.filter(c => c.value > 0).length}
+        />
         <main className="container">
           <Counters
             onReset={this.handleReset}
