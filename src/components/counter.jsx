@@ -12,29 +12,31 @@ class Counter extends Component {
   //   console.log('Constructor', this);
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
+  //
+  // handleIncrement() {
+  //   console.log('increment clicked!', this);
+  // }
+
+  //option 2 binding this for eventing
+  handleIncrement = product => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button onClick={this.handleIncrement} className="btn-secondary btn-sm">
+        <button
+          onClick={() => this.handleIncrement({ id: 1 })}
+          className="btn-secondary btn-sm"
+        >
           increment
         </button>
         {this.renderTags()}
       </React.Fragment>
     );
   }
-
-  //option 1 binding this for eventing
-  // handleIncrement() {
-  //   console.log('increment clicked!', this);
-  // }
-
-  //option 2 binding this for eventing
-  handleIncrement = () => {
-    console.log('increment clicked!', this);
-    this.setState({ count: this.state.count + 1 });
-  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
