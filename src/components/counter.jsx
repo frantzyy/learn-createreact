@@ -18,6 +18,14 @@ class Counter extends Component {
   //   this.setState({ value: this.state.value + 1 });
   // };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('componenWillUnmount');
+  }
+
   render() {
     return (
       <div>
