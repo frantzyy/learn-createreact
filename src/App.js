@@ -11,8 +11,19 @@ class App extends Component {
       { id: 2, value: 0 },
       { id: 3, value: 0 },
       { id: 4, value: 0 }
-    ]
+    ],
+    collapse: true
   };
+
+  // good spot to initialize components
+  constructor() {
+    console.log('App - constructor');
+    super();
+  }
+
+  componentDidMount() {
+    console.log('App - componentDidMount');
+  }
 
   handleDelete = counterId => {
     console.log('handleDelete called! ', counterId);
@@ -38,10 +49,24 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  doToggleHeader = () => {
+    this.setState({
+      collapse: !this.state.collapse
+    });
+  };
+
+  getHeaderClasses() {
+    let classes = 'App-header ';
+    classes += this.state.collapse === true ? 'collapse' : 'collapse.show';
+    return classes;
+  }
+
   render() {
+    console.log('App - render');
+
     return (
       <div className="App">
-        <header className="App-header">
+        <header className={this.getHeaderClasses()}>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -55,7 +80,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <h1>Hello World Joe!</h1>
+        <h1 onClick={this.doToggleHeader}>Hello World Joe!</h1>
         <Navbar
           totalCounters={this.state.counters.filter(c => c.value > 0).length}
         />
